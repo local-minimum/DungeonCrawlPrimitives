@@ -5,25 +5,15 @@ using UnityEngine;
 
 public class Voxel : MonoBehaviour
 {
+    public List<DirectionToFace> faces = new List<DirectionToFace>();
+
     public Entity Occumpant { get; set; }
-
-    [SerializeField]
-    bool blocked;
-
-    [SerializeField]
-    Transform overridePositionAnchor;
-
-    public bool Blocked
-    {
-        get { return blocked; }
-    }
 
     public Vector3 Position
     {
         get
         {
-            if (overridePositionAnchor == null) return transform.position;
-            return overridePositionAnchor.position;
+            return transform.position;
         }
     }
 
@@ -42,7 +32,6 @@ public class Voxel : MonoBehaviour
     {
         get
         {
-            if (Blocked) return Color.black;
             if (Occumpant != null) return Color.cyan;
             return Color.magenta;
         }

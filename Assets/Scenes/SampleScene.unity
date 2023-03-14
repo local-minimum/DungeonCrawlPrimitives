@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903481f85d45854e86e6b2299e2a44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocked: 1
+  faces: []
+  overridePositionAnchor: {fileID: 0}
   scale: 3
   gizmoScale: 0.99
 --- !u!1 &273977138
@@ -182,7 +183,6 @@ GameObject:
   - component: {fileID: 273977139}
   - component: {fileID: 273977142}
   - component: {fileID: 273977141}
-  - component: {fileID: 273977140}
   m_Layer: 0
   m_Name: Foor
   m_TagString: Untagged
@@ -205,20 +205,6 @@ Transform:
   m_Father: {fileID: 1419330362}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &273977140
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273977138}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &273977141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -314,7 +300,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903481f85d45854e86e6b2299e2a44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocked: 0
+  faces:
+  - Direction: 0
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 1
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 2
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 3
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 4
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 5
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  overridePositionAnchor: {fileID: 0}
   scale: 3
   gizmoScale: 0.99
 --- !u!1 &705507993
@@ -574,7 +597,6 @@ GameObject:
   - component: {fileID: 1165077627}
   - component: {fileID: 1165077630}
   - component: {fileID: 1165077629}
-  - component: {fileID: 1165077628}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -597,20 +619,6 @@ Transform:
   m_Father: {fileID: 1904078282}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!64 &1165077628
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165077626}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1165077629
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -672,7 +680,6 @@ GameObject:
   - component: {fileID: 1172619724}
   - component: {fileID: 1172619727}
   - component: {fileID: 1172619726}
-  - component: {fileID: 1172619725}
   m_Layer: 0
   m_Name: Foor
   m_TagString: Untagged
@@ -695,20 +702,6 @@ Transform:
   m_Father: {fileID: 1904078282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &1172619725
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172619723}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1172619726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -902,7 +895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903481f85d45854e86e6b2299e2a44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocked: 0
+  faces: []
+  overridePositionAnchor: {fileID: 0}
   scale: 3
   gizmoScale: 0.99
 --- !u!1 &1877212039
@@ -916,7 +910,6 @@ GameObject:
   - component: {fileID: 1877212040}
   - component: {fileID: 1877212043}
   - component: {fileID: 1877212042}
-  - component: {fileID: 1877212041}
   m_Layer: 0
   m_Name: Foor
   m_TagString: Untagged
@@ -939,20 +932,6 @@ Transform:
   m_Father: {fileID: 404509475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &1877212041
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877212039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1877212042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1049,7 +1028,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903481f85d45854e86e6b2299e2a44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocked: 0
+  faces:
+  - Direction: 0
+    Face:
+      Passable: 1
+      HasSurface: 1
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 1
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 2
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 3
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 4
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  - Direction: 5
+    Face:
+      Passable: 0
+      HasSurface: 0
+      Neighbour: {fileID: 0}
+      Surface: {fileID: 0}
+  overridePositionAnchor: {fileID: 0}
   scale: 3
   gizmoScale: 0.99
 --- !u!1 &1919199151
@@ -1063,7 +1079,6 @@ GameObject:
   - component: {fileID: 1919199152}
   - component: {fileID: 1919199155}
   - component: {fileID: 1919199154}
-  - component: {fileID: 1919199153}
   m_Layer: 0
   m_Name: Foor
   m_TagString: Untagged
@@ -1086,20 +1101,6 @@ Transform:
   m_Father: {fileID: 249331508}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!64 &1919199153
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919199151}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1919199154
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -93,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Level.Instance.GetVoxel(entity.CurrentScale, target, out Voxel voxel))
             {
-                if (voxel.Blocked) return false;
 
                 entity.ClaimPosition(voxel);
                 return true;
