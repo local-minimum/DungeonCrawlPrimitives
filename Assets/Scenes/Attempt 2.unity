@@ -376,6 +376,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce47e02fc01fa82459b55f33a4d047a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forwardKey: 119
+  backKey: 115
+  leftKey: 97
+  rightKey: 100
+  turnCWKey: 101
+  turnCCWKey: 113
+  turnTime: 0.4
+  moveTime: 0.5
 --- !u!4 &1211625723
 Transform:
   m_ObjectHideFlags: 0
@@ -435,7 +443,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389428723}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

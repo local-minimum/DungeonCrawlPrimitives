@@ -15,7 +15,7 @@ namespace DungAtt2
             "---x----x----xxxx",
             "---xxxxxxxxxxxxx-",
             "----------x------",
-            "Pxxxxxxxxxx------",
+            "Sxxxxxxxxxx------",
         };
 
         protected override string[] grid { get => startGrid; }

@@ -8,6 +8,8 @@ namespace DungAtt2
     {        
         [StringValue("Pp")]
         Player,
+        [StringValue("Ss")]
+        PlayerSpawn,
         [StringValue("Oo")]
         Other,
         [StringValue("Xx")]
@@ -73,6 +75,11 @@ namespace DungAtt2
                 case 'o':
                     color = Color.red;
                     return true;
+                // PlayerFirstSpawn;
+                case 'S':
+                case 's':
+                    color = Color.yellow;
+                    return true;
                 // Player
                 case 'P':
                 case 'p':
@@ -104,15 +111,17 @@ namespace DungAtt2
         }
 #endif
 
+        public Vector3Int PlayerFirstSpawnPosition
+        {
+            get { return FirstGridPosition(ch => GridEntity.PlayerSpawn.GetStringValue().Contains(ch)); }
+        }
+
+
         public Vector3Int PlayerPosition
         {
             get { return FirstGridPosition(ch => GridEntity.Player.GetStringValue().Contains(ch)); }
         }
 
-        public Vector3 PlayerWorldPosition
-        {
-            get { return FirstGridPosition(ch => GridEntity.Player.GetStringValue().Contains(ch)) * gridScale; }
-        }
 
         Dictionary<KeyValuePair<int, int>, char> levelRestore = new Dictionary<KeyValuePair<int, int>, char>();
 
@@ -125,7 +134,7 @@ namespace DungAtt2
             if (position.x >= line.Length) return false;
 
             var current = line[position.x];
-            if (GridEntity.InBound.GetStringValue().Contains(current))
+            if (GridEntity.InBound.GetStringValue().Contains(current) || GridEntity.PlayerSpawn.GetStringValue().Contains(current))
             {
                 var chars = line.ToCharArray();
                 var restorePosition = new KeyValuePair<int, int>(position.x, position.z);
@@ -166,7 +175,7 @@ namespace DungAtt2
             get { 
                 if (_instance == null)
                 {
-                    _instance = GameObject.FindObjectOfType<Level>();
+                    _instance = FindObjectOfType<Level>();
                 }
                 return _instance;
             }

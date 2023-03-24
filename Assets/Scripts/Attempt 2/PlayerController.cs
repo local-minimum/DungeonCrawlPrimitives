@@ -25,7 +25,8 @@ namespace DungAtt2
         void Start()
         {
             lookDirection = Level.instance.PlayerSpawnDirection;
-            position = Level.instance.PlayerPosition;
+            position = Level.instance.PlayerFirstSpawnPosition;
+            Level.instance.ClaimPosition(GridEntity.Player, position);
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(lookDirection.AsVector());
         }
@@ -96,7 +97,7 @@ namespace DungAtt2
 
         Vector3Int GetNavigationTraget(Navigation navigation)
         {
-            Debug.Log($"{navigation} from {position} looking {lookDirection}");
+            // Debug.Log($"{navigation} from {position} looking {lookDirection}");
             switch (navigation)
             {
                 case Navigation.Forward:
