@@ -24,14 +24,34 @@ namespace DungAtt2
 
         MovableEntity movableEntity;
 
-        void Start()
+        private void Awake()
         {
             movableEntity = GetComponent<MovableEntity>();
+            movableEntity.OnMove += MovableEntity_OnMove;
+        }
+
+        private void OnDestroy()
+        {
+            movableEntity.OnMove -= MovableEntity_OnMove;
+        }
+
+        private void MovableEntity_OnMove(string id, Vector3Int position, FaceDirection lookDirection)
+        {
+            this.position = position;
+            transform.position = Level.AsWorldPosition(position);
+            this.lookDirection = lookDirection;
+            transform.rotation = Quaternion.LookRotation(lookDirection.AsVector());
+        }
+
+        void Start()
+        {
             lookDirection = Level.instance.PlayerSpawnDirection;
             position = Level.instance.PlayerFirstSpawnPosition;
-            Level.instance.ClaimPosition(GridEntity.Player, position);
-            transform.position = position;
+
             transform.rotation = Quaternion.LookRotation(lookDirection.AsVector());
+            transform.position = Level.AsWorldPosition(position);
+
+            Level.instance.ClaimPosition(GridEntity.Player, position);
         }
 
         Navigation GetKeyPress()
@@ -147,11 +167,8 @@ namespace DungAtt2
 
                         action = (float progress) => { transform.position = Vector3.Lerp(origin, target, progress); };
                         afterAction = () => { 
-                            transform.position = target; 
                             Level.instance.ReleasePosition(GridEntity.Player, position);
-                            position = gridTarget;
-
-                            movableEntity?.SetNewGridPosition(position, lookDirection);
+                            movableEntity?.SetNewGridPosition(gridTarget, lookDirection);
                         };
                     }
                     else
@@ -169,9 +186,8 @@ namespace DungAtt2
 
                     duration = turnTime;
                     action = (float progress) => { transform.rotation = Quaternion.Lerp(origin, target, progress); };
-                    afterAction = () => { 
-                        transform.rotation = target;
-                        lookDirection = nav.asDirection(lookDirection);
+                    afterAction = () => {                         
+                        movableEntity?.SetNewGridPosition(position, nav.asDirection(lookDirection));
                     };
                 }
 
