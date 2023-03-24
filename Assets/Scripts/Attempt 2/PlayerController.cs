@@ -22,8 +22,11 @@ namespace DungAtt2
         [SerializeField]
         KeyCode turnCCWKey = KeyCode.Q;
 
+        MovableEntity movableEntity;
+
         void Start()
         {
+            movableEntity = GetComponent<MovableEntity>();
             lookDirection = Level.instance.PlayerSpawnDirection;
             position = Level.instance.PlayerFirstSpawnPosition;
             Level.instance.ClaimPosition(GridEntity.Player, position);
@@ -147,6 +150,8 @@ namespace DungAtt2
                             transform.position = target; 
                             Level.instance.ReleasePosition(GridEntity.Player, position);
                             position = gridTarget;
+
+                            movableEntity?.SetNewGridPosition(position, lookDirection);
                         };
                     }
                     else
