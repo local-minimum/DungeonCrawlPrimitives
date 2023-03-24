@@ -1,0 +1,41 @@
+Face {
+  Passable: Boolean
+  Filled: Boolean
+  Neighbour: Voxel?
+
+/* Only needed if scale should happen
+  LowerAnchor: Anchor / DerivedAnchor
+  UpperAnchor: Anchor / DerivedAnchor
+
+  RelativeCenter => Vector3
+  GenerateWhiteBlock(): Void
+*/
+}
+
+/* Only needed if scale should happen
+Anchor {
+  Value: (0,1)
+}
+
+DerivedAnchor {
+  Left: Anchor
+  Right: Anchor	
+}
+*/
+
+Voxel {
+ NorthFace: Face
+ SouthFace: Face
+ WestFace: Face
+ EastFace: Face
+ DownFace: Face
+ UpFace: Face
+
+ CharacterAnchor => DownFace.RelativeCenter + Floor
+
+ GenerateWhiteBlock(): Void
+ ConnectSelectedNeighbours(): Void
+ CreateMissingNeighbours(): Void
+ 
+ PointInVoxel(): Boolean
+}
