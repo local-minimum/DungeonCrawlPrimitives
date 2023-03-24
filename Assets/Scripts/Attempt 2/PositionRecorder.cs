@@ -109,18 +109,26 @@ namespace DungAtt2
             listening = true;
         }
 
+        private string debugPlayerPrefsKey = "save.debug";
+
         private void OnGUI()
         {
-            if (GUILayout.Button("Serialize"))
+            if (GUILayout.Button("Debug Save"))
             {
-                Debug.Log(SerializeState());
+                PlayerPrefs.SetString(debugPlayerPrefsKey, StringCompressor.CompressString(SerializeState()));                
             }
-            if (GUILayout.Button("Serialized and Deserialize"))
+            if (GUILayout.Button("Debug Load"))
             {
-                DeserializeState(
-                    StringCompressor.DecompressString(StringCompressor.CompressString(SerializeState()))
-                );
-                RestorePositions();
+                var data = PlayerPrefs.GetString(debugPlayerPrefsKey);
+                if (string.IsNullOrEmpty(data))
+                {
+                    Debug.LogWarning($"Nothing stored at {debugPlayerPrefsKey} yet");
+                } else
+                {
+                    DeserializeState(StringCompressor.DecompressString(data));                
+                    RestorePositions();
+                }
+                
             }
         }
     }
