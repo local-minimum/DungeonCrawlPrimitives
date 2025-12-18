@@ -20,6 +20,6 @@ namespace DungAtt2
 
         protected override string[] grid { get => startGrid; }
 
-        protected override int lvl => 1;
+        public override int lvl => 1;
     }
 }

@@ -22,7 +22,7 @@ namespace DungAtt2
     {
         static int gridScale = 3;
 
-        abstract protected int lvl { get; }
+        abstract public int lvl { get; }
         abstract protected string[] grid { get; }
         
         public FaceDirection PlayerSpawnDirection;
